@@ -7,6 +7,7 @@
 
 <div class="centerBlock">
   <div id="poker-room">
+    <img src="./../images/logo-circle.jpg" alt="logo" class="img-poker-logo-table"/>
     <div show.bind="tableName" class="current-table-name">
       <span>${isTournament ? 'Tournament' : 'Table'}</span>: <span>${tableName} </span>
       <span show.bind="isTournament"><a href="#" class="nounderline" click.trigger="openInfo(tournament)">
@@ -99,6 +100,7 @@
     </div>
   <div repeat.for="chip of potChips" class="${chip.classes}" css="top: ${chip.top}px; left: ${chip.left}px;"></div>
       <div class="total-balance-card">
+        
         <h4>account balance</h4>
         <h2> $1,000.00</h2>
         <div class="cashOut" click.delegate="cashOut()">
