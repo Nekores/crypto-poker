@@ -5,6 +5,7 @@
 </div> -->
 
 
+<div class="centerBlock">
   <div id="poker-room">
     <div show.bind="tableName" class="current-table-name">
       <span>${isTournament ? 'Tournament' : 'Table'}</span>: <span>${tableName} </span>
@@ -38,9 +39,11 @@
     <require from="./lib/number-format"></require>
     <require from="./lib/crypto-format"></require>
 
-    <template repeat.for="seat of seats">
-      <compose view="seat.html" view-model.bind="seat" containerless />
-    </template>
+    <div class="seeet">
+      <template repeat.for="seat of seats">
+        <compose view="seat.html" view-model.bind="seat" containerless />
+      </template>
+    </div>
   
     
     <compose view-model="betting-controls" view.bind="betting-controls.html" view-model.ref="bettingControls" containerless></compose>
@@ -49,39 +52,7 @@
     
     <div id="pot-amount" show.bind="potAmount">Pot: <span>${potAmount | numberFormat}</span></div>
     <div id="table-pot-amount" show.bind="potAmount && game.board.length>0"><span>${potAmount | numberFormat}</span></div>
-    <div id="infobox">
-      <div id="gameinfo">
-        <span>${playerSitting ? 'Stack:' : 'Account Balance:'}  ${playerStack | numberFormat}</span>
-        <span class="crypto-balance" if.bind="isCurrencyCrypto">${playerStack | cryptoFormat}</span>
-        <span class="currency-icon currency-${currency}" if.bind="isCurrencyCrypto"></span>
-
-        <!--<span id="tocall" show.bind="game.tocall >= 0">To call: ${game.tocall | numberFormat}</span>-->
-      </div>
-      <div id="chatbox" ref="chatboxElem" scrolltop.bind="chatboxElemScrollHeight">
-        <p repeat.for="chat of chatMessages" class="chatRow">
-          <span class="${chat.screenName==='Dealer' ? 'chatDealer': 'chatScreenName'}">${chat.screenName}:</span>
-          <span show.bind="chat.message" class="chatMessage">${chat.message}</span>
-          <span show.bind="chat.potResultChatSummaries.length">
-            <span repeat.for="summary of chat.potResultChatSummaries">
-              <span>${summary.text}</span>
-
-              <span show.bind="summary.cards.length">            
-                  <br/><span repeat.for="card of summary.cards" style="background-color: white;border-radius: 2px;padding:0 2px; margin: 0 2px;" class="${card.suit==='♠'||card.suit==='♣' ? 'blackCard': 'redCard'}">${card.value}${card.suit}</span>                  
-                </span>
-
-            </span>
-
-          </span>
-          
-        </p>        
-      </div>
-      <i class="fa ${playChatSound ? 'fa-volume-up' : 'fa-volume-off'}" id="poker-room-chat-volume" aria-hidden="true" click.delegate="playChatSound=!playChatSound"></i>
-      <div id="chat-input">
-        <input type="text" keyup.trigger="chatKeyPress($event)" placeholder="enter chat message" value.bind="chatInput">
-        <div id="submitchat" click.trigger="sendChat()">Send</div>   
-        
-      </div>
-    </div>
+    
     <div id="side-pots" class="hide">
       <strong>Side Pots:</strong>
       <ol></ol>
@@ -127,6 +98,39 @@
   </div> <!-- /poker-room -->
   
   <div class="poker-tables-container">
+    <div id="infobox">
+      <div id="gameinfo">
+        <span>${playerSitting ? 'Stack:' : 'Account Balance:'}  ${playerStack | numberFormat}</span>
+        <span class="crypto-balance" if.bind="isCurrencyCrypto">${playerStack | cryptoFormat}</span>
+        <span class="currency-icon currency-${currency}" if.bind="isCurrencyCrypto"></span>
+
+        <!--<span id="tocall" show.bind="game.tocall >= 0">To call: ${game.tocall | numberFormat}</span>-->
+      </div>
+      <div id="chatbox" ref="chatboxElem" scrolltop.bind="chatboxElemScrollHeight">
+        <p repeat.for="chat of chatMessages" class="chatRow">
+          <span class="${chat.screenName==='Dealer' ? 'chatDealer': 'chatScreenName'}">${chat.screenName}:</span>
+          <span show.bind="chat.message" class="chatMessage">${chat.message}</span>
+          <span show.bind="chat.potResultChatSummaries.length">
+            <span repeat.for="summary of chat.potResultChatSummaries">
+              <span>${summary.text}</span>
+
+              <span show.bind="summary.cards.length">            
+                  <br/><span repeat.for="card of summary.cards" style="background-color: white;border-radius: 2px;padding:0 2px; margin: 0 2px;" class="${card.suit==='♠'||card.suit==='♣' ? 'blackCard': 'redCard'}">${card.value}${card.suit}</span>                  
+                </span>
+
+            </span>
+
+          </span>
+          
+        </p>        
+      </div>
+      <i class="fa ${playChatSound ? 'fa-volume-up' : 'fa-volume-off'}" id="poker-room-chat-volume" aria-hidden="true" click.delegate="playChatSound=!playChatSound"></i>
+      <div id="chat-input">
+        <input type="text" keyup.trigger="chatKeyPress($event)" placeholder="enter chat message" value.bind="chatInput">
+        <div id="submitchat" click.trigger="sendChat()">Send</div>   
+        
+      </div>
+    </div>
       <next-tournament></next-tournament>
     <compose view-model="global-chat" view.bind="global-chat.html" containerless></compose>      
     <div id="leaderboard-rhs">
@@ -134,6 +138,7 @@
       </div>
       
   </div>
+</div>
   
   <compose view-model="poker-rooms" view.bind="poker-rooms.html" containerless></compose>        
 

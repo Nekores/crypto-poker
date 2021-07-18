@@ -36,8 +36,8 @@ body {
 }
 
 #poker-room {
-  height: 600px;
-  width: 800px;
+  height:700px;
+  width: 100%;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -47,20 +47,20 @@ body {
   vertical-align: top;
   border: 2px solid gray;
 }
-.poker-tables-container {
-  margin: auto;
-  margin-top: 5px;
-}
+// .poker-tables-container {
+//   margin: auto;
+//   margin-top: 5px;
+// }
 
-@media (min-width: 1230px) {
-  #poker-room {
-    display: inline-block;
-  } 
-  .poker-tables-container {
-    display:inline-block;
-    margin-left:20px;
-  }
-}
+// @media (min-width: 1230px) {
+//   #poker-room {
+//     display: inline-block;
+//   } 
+//   .poker-tables-container {
+//     display:inline-block;
+//     margin-left:20px;
+//   }
+// }
 
 @media (min-width: 1550px) {
     #leaderboard-lhs {
@@ -185,6 +185,28 @@ body {
     font-weight:bold;
 }
 
+.coin-tray{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 74px;
+  .root-edge-1{
+   //
+  }
+  .edge-1, .edge-2, .edge-3, .edge-4, .edge-5{
+    position: relative;
+    margin-bottom: 1px;
+  }
+  .root-edge{
+    margin-right: 5px;
+    &:last-child{
+      margin-right: 0px;
+      margin-left: 0.5px;
+    }
+    
+  }
+}
+
 .chip-edge {
     background-image:url($cdn + 'images/chip-edge.png');
     width:12px;
@@ -192,32 +214,31 @@ body {
     min-width:12px;
     min-height:2px;
     position:absolute;
-    top:65px;
+   
 }
 
 .edge-1 {
-    background-color:#ff0000;   
-    left:363px;
+    background-color:#ff0000;
 }
 
 .edge-2 {
     background-color:#007c00;    
-    left:379px;
+    
 }
 
 .edge-3 {
     background-color:#0000ff;    
-    left:395px;
+    
 }
 
 .edge-4 {
     background-color:#551255;    
-    left:411px;
+    
 }
 
 .edge-5 {
     background-color:#ffff00;    
-    left:426px;
+    
 }
 
 .chip-spot {
@@ -456,11 +477,12 @@ display:none;
 #infobox {
     background:#000;
     opacity:0.85;
-    height:145px;
-    width:360px;
-    position:absolute;
-    top:450px;
-    left:10px;
+    height:263px;
+    position: relative;
+    // width:360px;
+    // position:absolute;
+    // bottom:10px;
+    // left:10px;
     border-style:solid;
     border-width:2px;
     border-color:#fff;
@@ -476,19 +498,33 @@ display:none;
     background-color: $generic-header;
 }
 
+.seeet{
+    /* height: fit-content; */
+    position: absolute;
+    left: 0;
+    top: 114px;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    width: 800px;
+    height: 100%;
+}
+
 #chatbox {
-  height: 85px;
-  width: 355px;
-  position: absolute;
-  top: 33px;
-  padding-left: 4px;
-  color: #fff;
-  line-height: 14px;
-  font-size: 12px;
-  overflow-y: auto;
-  padding-bottom: 3px;
-  padding-right: 20px;
-  overflow-wrap: break-word;
+     /* height: 85px; */
+    /* width: 355px; */
+    /* position: absolute; */
+    /* top: 33px; */
+    margin: 4px;
+    color: #fff;
+    max-width: 340px;
+    line-height: 14px;
+    font-size: 12px;
+    overflow-y: auto;
+    /* padding-bottom: 3px; */
+    /* padding-right: 20px; */
+    overflow-wrap: break-word;
+    height: 200px;
 }
 #poker-room-chat-volume {
   height: 16px;
@@ -504,7 +540,7 @@ display:none;
     height:21px;
     width:360px;
     position:absolute;
-    top:117px;
+    bottom: 0px;
     /* background:#0000ff; */
 }
 
@@ -713,9 +749,9 @@ display:none;
 
 #join-label {
   text-align: center;
-position: absolute;
-  top: 475px;
-  left: 450px;
+  position: absolute;
+  /* top: 475px; */
+  left: 0;
   color: #fff;
   font-size: 14px;
   background-color: #000;
@@ -725,6 +761,10 @@ position: absolute;
   border-radius: 10px;
   max-height: 100px;
   overflow: auto;
+  right: 0;
+  width: fit-content;
+  margin: auto;
+  bottom: 10%;
 }
 
 #auto-controls{
@@ -750,10 +790,11 @@ position: absolute;
 // }
 
 #poker-room {
-    background-image: url($cdn +'images/bg-green.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;  
+  background-image: url(images/bg-green.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #0d7d23ed;
   }
   
 
@@ -1216,8 +1257,8 @@ ux-dialog {
   }
 
   .centerBlock {
-    display: table;
-    margin: auto;
+    display: flex;
+    // margin: auto;
   }
 
   ul.list-group:after {
