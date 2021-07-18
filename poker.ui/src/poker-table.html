@@ -35,7 +35,9 @@
       <span>${startingIn}</span>
     <div show.bind="gameStarting.blindsChanging">Blinds are now ${gameStarting.blindsChanging.smallBlind} and ${gameStarting.blindsChanging.bigBlind}</div>
     </div>
-    <div class="cashOut" click.delegate="cashOut()">Cashier</div>
+    
+    
+    
     <require from="./lib/number-format"></require>
     <require from="./lib/crypto-format"></require>
 
@@ -79,6 +81,8 @@
       <div innerhtml.bind="statusLabel"></div>
       <button class="btn btn-primary margin-top-10" click.delegate="imbackClicked(false)" disabled.bind="sendingSittingBackIn" show.bind="playerSitting && seat.isSittingOut">I'm back <i show.bind="sendingSittingBackIn" class="fa fa-spinner fa-spin"></i></button>
     </div>
+
+   
     
     <div id="auto-controls">
       <div class="checkbox" id="fold-any-bet" show.bind="showAutoFold">
@@ -94,6 +98,12 @@
       <label><input type="checkbox" value="1" name="" checked.bind="tableOptions.sitOutNextHand" change.delegate="sitOutNextHandClicked()">Sit out next hand</label>
     </div>
   <div repeat.for="chip of potChips" class="${chip.classes}" css="top: ${chip.top}px; left: ${chip.left}px;"></div>
+      <div class="total-balance-card">
+        <h4>account balance</h4>
+        <h2> $1,000.00</h2>
+        <div class="cashOut" click.delegate="cashOut()">
+          Cashier</div>
+      </div>
     <compose view="./dealer-tray.html"></compose>
   </div> <!-- /poker-room -->
   
@@ -140,6 +150,8 @@
   </div>
 </div>
   
-  <compose view-model="poker-rooms" view.bind="poker-rooms.html" containerless></compose>        
+
+  <compose view-model="poker-rooms" view.bind="poker-rooms.html" containerless></compose>       
+   
 
 </template>
