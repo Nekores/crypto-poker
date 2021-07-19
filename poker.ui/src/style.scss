@@ -218,9 +218,13 @@ h2 {
   text-align: center;
 }
 
+.can-sit{
+  transition: 0.3s all ease-in-out;
+}
 .can-sit:hover {
-  background-color: #37ff00;
+  // background-color: #37ff00;
   cursor: pointer;
+  transform: scale(1.15);
 }
 
 .can-sit:hover .invitation {
@@ -943,13 +947,13 @@ h2 {
   min-height: 90px;
   overflow: hidden;
   border-radius: 50%;
-  border-color: #bcbcbc;
+  /* border-color: #bcbcbc; */
   position: absolute;
-  -webkit-box-shadow: -4px 6px 32px -6px rgba(0 ,0, 0, 75%);
-  -moz-box-shadow: -4px 6px 32px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: -4px 6px 32px -6px rgba(0, 0, 0, 75%);
+  /* -webkit-box-shadow: -4px 6px 32px -6px black; */
+  // -moz-box-shadow: -4px 6px 32px -6px rgba(0, 0, 0, 0.75);
+  /* box-shadow: -4px 6px 32px -6px black; */
   z-index: 2;
-  color: #fff
+  color: #fff;
 }
 
 .player-sitting {
@@ -1362,9 +1366,12 @@ ux-dialog {
 }
 
 .empty-seat {
-  background: none rgb(60, 61, 61);
-  opacity: 0.5;
+  background-image: url(../images/tool.png);
+  /* background: none #3c3d3d; */
+  /* opacity: 0.5; */
   display: block;
+  background-position: center;
+  background-size: cover;
 }
 
 .panel-footer-ex {
