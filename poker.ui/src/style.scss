@@ -26,6 +26,15 @@ body {
   background-color: #0000000f;
   border-radius: 5px;
 }
+.nav-left-logo{
+  display: flex;
+  align-items: center;
+  height: 52px;
+  p{
+    margin: 0px;
+    font-weight: 700;
+  }
+}
 
 .nav-logo {
   background: url($cdn + "images/logo.png") no-repeat;
@@ -63,7 +72,7 @@ body {
   @media (min-width: 768px) {
     float: left;
     margin: 0;
-    margin-top: 9px;
+    margin-top: 6px;
     position: relative;
     color: white;
     margin-left: 20px;
@@ -74,6 +83,13 @@ body {
       }
     }
   }
+}
+.poker-beach-bg{
+  width: 100%;
+  background-image: url(../images/beachcover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 #poker-room {
