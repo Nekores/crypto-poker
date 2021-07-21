@@ -1,6 +1,6 @@
 <template>
-  <a class="github-fork-ribbon" target="_blank" href="https://github.com/wallaceturner/crypto-poker"
-    data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+  <!-- <a class="github-fork-ribbon" target="_blank" href="https://github.com/wallaceturner/crypto-poker"
+    data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a> -->
 
   <require from="bootstrap/css/bootstrap.css"></require>
   <require from="./style.css"></require>
@@ -12,7 +12,7 @@
       <div class="navbar-header">
         <!-- <a href="../" class="navbar-brand"> -->
         <!-- <span class="nav-logo"> -->
-        <img src="./../images/royal-doge-logo.png" alt="logo" class="img-fluid" height="60px">
+        <img src="https://mic.poker.spurdo.fi/images/logo.png" alt="logo" class="img-fluid main-logo-nav">
 
         <!-- </a> -->
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -23,36 +23,32 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav">
-          <!-- <li><a route-href="route: home">Tables</a></li> -->
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"
-              click.delegate="openMyAccount()">My Account</a></li>
-          <li class="dropdown" show.bind="!apiService.authenticated"><a class="dropdown-toggle" data-toggle="dropdown"
-              href="#" id="themes" click.delegate="openLoginWindow()">Login</a></li>
-          <li><a href="#" route-href="route: faq">Help/FAQ</a></li>
+          <li class="dropdown"><a show.bind="apiService.authenticated" class="dropdown-toggle au-target aurelia-hide"
+              data-toggle="dropdown" href="#" id="themes" click.delegate="openMyAccount()" au-target-id="11">My
+              Account</a></li>
+          <li><a href="#/faq" route-href="route: faq" class="au-target" au-target-id="12">Help/FAQ</a></li>
+
           <li class="dropdown hidden-md hidden-sm hidden-xs">
 
-            <a class="dropdown-toggle " data-toggle="dropdown" href="#"> </span>Buy DASH <span
-                class="nav-dash-icon"></span>
+            <a class="dropdown-toggle " data-toggle="dropdown" href="#" aria-expanded="false"> Buy TESTING
 
               <span class="caret"></span>
 
             </a>
             <ul class="dropdown-menu">
-              <li></span> <a href="https://coinspot.com.au" target="_blank"><span class="coinspot-icon"></span>
-                  <p>
-                    coinspot.com.au (Australia)
-                  </p>
-                </a></li>
-              <li><a href="https://bitpanda.com " target="_blank"><span class="bitpanda-icon"></span>
-                  <p>bitpanda.com
-                    (Europe)</p>
-                </a></li>
-              <li><a href="https://www.dash.org/direct-purchase/" target="_blank">Other Vendors</a></li>
+              <li> <a
+                  href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x43c239e89ba84d15d1ab52a2ed101fdd40f402ab"
+                  target="_blank">PancakeSwap</a></li>
+              <li><a
+                  href="https://bogged.finance/swap?tokenIn=BNB&amp;tokenOut=0x43c239e89ba84d15d1ab52a2ed101fdd40f402ab"
+                  target="_blank">BoggedFinance</a></li>
             </ul>
           </li>
+          <li><a href="#" show.bind="!apiService.authenticated" click.delegate="loginWithWallet()" class="au-target"
+              au-target-id="13">Login with wallet</a></li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right hidden-md hidden-sm hidden-xs">
+        <!-- <ul class="nav navbar-nav navbar-right hidden-md hidden-sm hidden-xs">
           <li>
             <div class="nav-left-logo">
               <p>Instant Payments by </p>
@@ -63,7 +59,7 @@
             
             
 
-        </ul>
+        </ul> -->
 
       </div>
     </div>
